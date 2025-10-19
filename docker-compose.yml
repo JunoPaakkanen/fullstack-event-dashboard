@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    # Use the Bitnami image
+    image: bitnami/postgresql:latest
+    container_name: postgres-db
+    restart: always
+    environment:
+      # These will load the actual values from the .env file
+      POSTGRESQL_USERNAME: ${POSTGRESQL_USERNAME}
+      POSTGRESQL_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRESQL_DATABASE: ${POSTGRESQL_DATABASE}
+    ports:
+      - "5432:5432"
+    volumes:
+      # This named volume will persist the data
+      - pgdata:/bitnami/postgresql
+
+volumes:
+  pgdata:
+    # Docker will create and manage this named volume automatically
