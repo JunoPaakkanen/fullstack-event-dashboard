@@ -1,6 +1,7 @@
 package com.juno.event_data_dashboard.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 
 // The User class represents a table in the database
 @Entity
+@Table(name = "users")
 public class User {
     
     // This field is the primary key

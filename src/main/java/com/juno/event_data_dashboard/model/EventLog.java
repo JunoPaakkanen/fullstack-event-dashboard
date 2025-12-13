@@ -5,7 +5,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Document(indexName = "${elasticsearch.index.prefix}#{T(java.time.LocalDate).now().toString()}")
+@Document(indexName = "#{ @environment.getProperty('elasticsearch.index.prefix') + T(java.time.LocalDate).now().toString()}")
 public class EventLog {
     
     // Id field, unique identifier for the event log document in Elasticsearch
